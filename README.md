@@ -25,7 +25,7 @@ Help us improve the package and this guide by reporting issues [here](https://gi
 
 ### Temporal Map Challenge Environment
 
-SDNist v1.4b and v2.0 does not support the Temporal Map Challenge environment.
+SDNist v1.4b and v2.0 do not support the Temporal Map Challenge environment.
 
 To run the testing environment from the [*NIST PSCR Differential Privacy Temporal Map Challenge*](https://www.nist.gov/ctl/pscr/open-innovation-prize-challenges/past-prize-challenges/2020-differential-privacy-temporal) for the Chicago Taxi data sprint or the American Community Survey sprint, please go to the the [Temporal Map Challenge assets repository](https://github.com/usnistgov/Differential-Privacy-Temporal-Map-Challenge-assets).
 
@@ -223,7 +223,7 @@ Generate Data Quality Report
       Follow the next subsection, Download Data Manually, if the sdnist.report package is unable to download the datasets.
 
 
-2. All the datasets required by the sdnist.report package are installed into the sdnist _toy _data directory, which should be now present inside the sdnist-project directory. sdnist _toy _data is also a data root directory. You can use some other directory as a data root by providing the –data-root argument to the sdnist.report package. If you provide a –data-root argument with a path, the sdnist.report package will look for datasets in the data root directory you have specified, and the package will download it if it is not present in the data root.
+2. All the datasets required by the sdnist.report package are installed into the sdnist nist_diverse_community_excerpts directory, which should be now present inside the sdnist-project directory. You can use some other directory as a data root by providing the –data-root argument to the sdnist.report package. If you provide a –data-root argument with a path, the sdnist.report package will look for datasets in the data root directory you have specified, and the package will download it if it is not present in the data root.
 
 
 3. The sdnist.report package also needs a deidentified dataset that it can evaluate against its original counterpart. Since the sdnist.report package comes bundled with the datasets, the deidentified dataset should be generated using the bundled datasets.

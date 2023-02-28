@@ -40,10 +40,14 @@ Postcard descriptions are included in each data set folder and provide a snapsho
 
 
 ### Data dictionary and feature notes
-There is a data dictionary in JSON format included with the data.
+
+**Data types:**
+A JSON file in each directory provides data types and data ranges for each excerpt file. All of the excerpts have the same schema but vary in range. The report tool will raise an error if it is fed an incompatible data type, such as providing a float value for an integer-type column (e.g., '1.0' v. '1').  We recommend Python Pandas users feed the read function a data type dictionary: `dtype_dict = dict({'PUMA': 'object', 'AGEP': 'int64', 'SEX': 'int64', 'MSP': 'object', 'HISP': 'int64', 'RAC1P': 'int64', 'NOC': 'object', 'NPF': 'object', 'HOUSING_TYPE': 'int64', 'OWN_RENT': 'int64', 'DENSITY': 'float64', 'INDP': 'object', 'INDP_CAT': 'object', 'EDU': 'object', 'PINCP': 'object', 'PINCP_DECILE': 'object', 'POVPIP': 'object', 'DVET': 'object', 'DREM': 'object', 'DPHY': 'object', 'DEYE': 'int32', 'DEAR': 'int32', 'PWGTP': 'int64', 'WGTP': 'int64'})`
 
 **Null values:** 
-Different systems encode and handle null (empty) values differently; we use the literal character 'N' to represent null values throughout these data. Null values appear in columns representing categorical and numerical data. For synthesizing numerical features (PINCP, POVIP), you will likely want to convert 'N' to null or a numerical code before processing. The presence of a string in a column may cause a programing environment to interpret all values of said column as strings. To avoid this in the Pandas package of Python, for example, specify 'N' as the null value during CSV import: `df = pandas.read_csv('./national2019.csv', na_values='N')`. **Be sure to convert null values back to 'N' before submitting to the sdnist evaluator.** Again in Pandas, `df.to_csv('./synthetic_national2019.csv', na_rep='N')`.
+Different systems encode and handle null (empty) values differently; we use the literal character 'N' to represent null values throughout these data. Null values appear in columns representing categorical and numerical data. For synthesizing numerical features (PINCP, POVIP), you will likely want to convert 'N' to null or a numerical code before processing. The presence of a string in a column may cause a programing environment to interpret all values of said column as strings. To avoid this in the Pandas package of Python, for example, specify 'N' as the null value during CSV import: `df = pandas.read_csv('./national2019.csv', na_values='N', dtype=dtype_dict)` Note, we also fed the reader a dtype dictonary to ensure we produce report tool-compatible values. 
+
+**Be sure to convert null values back to 'N' before submitting to the sdnist evaluator.** Again in Pandas, `df.to_csv('./synthetic_national2019.csv', na_rep='N', index=False)`.
 
 
 **Feature notes:**
